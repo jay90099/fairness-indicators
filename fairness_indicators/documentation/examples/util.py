@@ -47,6 +47,19 @@ IDENTITY_COLUMNS = {
     'race': RACE_COLUMNS,
     'disability': DISABILITY_COLUMNS
 }
+FEATURE_MAP = {
+    # Label:
+    LABEL: tf.io.FixedLenFeature([], tf.float32),
+    # Text:
+    TEXT_FEATURE: tf.io.FixedLenFeature([], tf.string),
+
+    # Identities:
+    'sexual_orientation': tf.io.VarLenFeature(tf.string),
+    'gender': tf.io.VarLenFeature(tf.string),
+    'religion': tf.io.VarLenFeature(tf.string),
+    'race': tf.io.VarLenFeature(tf.string),
+    'disability': tf.io.VarLenFeature(tf.string),
+}
 
 _THRESHOLD = 0.5
 
